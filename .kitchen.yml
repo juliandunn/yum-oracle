@@ -1,0 +1,14 @@
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: oracle-5.10
+  - name: oracle-6.5
+
+suites:
+  - name: default
+    run_list:
+      - recipe[yum-oracle::default]

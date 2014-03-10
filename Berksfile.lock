@@ -1,0 +1,10 @@
+{
+  "sources": {
+    "yum-oracle": {
+      "path": "."
+    },
+    "yum": {
+      "locked_version": "3.0.4"
+    }
+  }
+}
