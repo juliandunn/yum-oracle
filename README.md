@@ -1,5 +1,5 @@
 yum-oracle Cookbook
-============
+===================
 
 The yum-oracle cookbook manages some of the yum repos to operate an Oracle
 Linux system. 
@@ -55,8 +55,9 @@ Oracle refers to Enterprise Linux 5 as "el5" and Enterprise Linux 6 as "ol6", so
 Bugs
 ----
 
-* ChefSpec unit tests don't work because Fauxhai doesn't have data for Oracle Linux (yet).
-* Not all repositories that normally appear on an Oracle Linux system are managed yet by
+* ChefSpec unit tests run but not with real Fauxhai data, because Fauxhai doesn't have data
+  for Oracle Linux (yet).
+* Not all repositories that might appear on an Oracle Linux system are managed yet by
   this cookbook, because most of them are turned off. Pull requests are accepted to do all
   the work to add them in.
 
