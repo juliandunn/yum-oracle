@@ -1,41 +1,47 @@
 require 'spec_helper'
 
-describe 'yum-fedora::default' do
-  context 'yum-fedora::default uses default attributes' do
+describe 'yum-oracle::default' do
+  context 'on Oracle 5' do
     let(:chef_run) do
-      ChefSpec::Runner.new do |node|
-        node.set['yum']['fedora']['managed'] = true
-        node.set['yum']['fedora-debuginfo']['managed'] = true
-        node.set['yum']['fedora-source']['managed'] = true
-        node.set['yum']['updates']['managed'] = true
-        node.set['yum']['updates-debuginfo']['managed'] = true
-        node.set['yum']['updates-source']['managed'] = true
-        node.set['yum']['updates-testing']['managed'] = true
-        node.set['yum']['updates-testing-debuginfo']['managed'] = true
-        node.set['yum']['updates-testing-source']['managed'] = true
+      ChefSpec::Runner.new(platform: 'oracle', version: '5.10') do |node|
+        node.set['yum']['el5_latest']['managed'] = true
+        node.set['yum']['ol5_UEK_latest']['managed'] = true
       end.converge(described_recipe)
     end
 
     context 'removing stock configuration files' do
-      it 'deletes /etc/yum.repos.d/fedora-updates.repo' do
-        expect(chef_run).to delete_file('/etc/yum.repos.d/fedora-updates.repo')
-      end
-
-      it 'deletes /etc/yum.repos.d/fedora-updates-testing.repo' do
-        expect(chef_run).to delete_file('/etc/yum.repos.d/fedora-updates-testing.repo')
+      it 'deletes /etc/yum.repos.d/public-yum-el5.repo' do
+        expect(chef_run).to delete_file('/etc/yum.repos.d/public-yum-el5.repo')
       end
     end
 
     %w{
-      fedora
-      fedora-debuginfo
-      fedora-source
-      updates
-      updates-debuginfo
-      updates-source
-      updates-testing
-      updates-testing-debuginfo
-      updates-testing-source
+      el5_latest
+      ol5_UEK_latest
+      }.each do |repo|
+      it "creates yum_repository[#{repo}]" do
+        expect(chef_run).to create_yum_repository(repo)
+      end
+    end
+  end
+
+  context 'on Oracle 6' do
+    let(:chef_run) do
+      ChefSpec::Runner.new(platform: 'oracle', version: '6.5') do |node|
+        node.set['yum']['el5_latest']['managed'] = true
+        node.set['yum']['ol5_UEK_latest']['managed'] = true
+      end.converge(described_recipe)
+    end
+
+    context 'removing stock configuration files' do
+      it 'deletes /etc/yum.repos.d/public-yum-ol6.repo' do
+        expect(chef_run).to delete_file('/etc/yum.repos.d/public-yum-ol6.repo')
+      end
+    end
+
+    %w{
+      ol6_latest
+      ol6_UEK_latest
       }.each do |repo|
       it "creates yum_repository[#{repo}]" do
         expect(chef_run).to create_yum_repository(repo)
