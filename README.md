@@ -1,17 +1,19 @@
 yum-oracle Cookbook
 ============
 
-The yum-oracle cookbook manages (some of) the yum repos to operate an Oracle
+The yum-oracle cookbook manages some of the yum repos to operate an Oracle
 Linux system. 
 
 Requirements
 ------------
+
 * Chef 11 or higher
 * yum cookbook version 3.0.0 or higher
 
 Attributes
 ----------
-The following attributes are set by default
+
+The following attributes are set by default.
 
 Recipes
 -------
@@ -20,23 +22,23 @@ Recipes
   recipe during compilation.
   
 ```ruby
-  yum_repository 'fedora' do
-    mirrorlist 'https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch'
-    description 'Fedora $releasever - $basearch'
+  yum_repository 'ol6_latest' do
+    baseurl 'http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/$basearch/'
+    description 'Oracle Linux $releasever Latest ($basearch)'
     enabled true
     gpgcheck true
-    gpgkey 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$basearch'
+    gpgkey 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle'
   end
 ```
 
 Usage Example
 -------------
-To disable the Fedora Updates repository through a Role or Environment definition
+To disable the Oracle 6 latest repository through a Role or Environment definition:
 
 ```
 default_attributes(
   :yum => {
-    :updates => {
+    :ol6_latest => {
       :enabled => {
         false
        }
@@ -45,39 +47,30 @@ default_attributes(
  )
 ```
 
-Uncommonly used repositoryids are not managed by default. This is
-speeds up integration testing pipelines by avoiding yum-cache builds
-that nobody cares about.
+Special Note
+------------
 
-```
-node.default['yum']['fedora-debuginfo']['managed'] = true
-node.default['yum']['fedora-debuginfo']['enabled'] = true
-include_recipe 'yum-fedora'
-```
+Oracle refers to Enterprise Linux 5 as "el5" and Enterprise Linux 6 as "ol6", so be careful.
 
-More Examples
--------------
-Point the fedora and updates repositories at an internally hosted server.
+Bugs
+----
 
-```
-node.default['yum']['fedora']['enabled'] = true
-node.default['yum']['fedora']['mirrorlist'] = nil
-node.default['yum']['fedora']['baseurl'] = 'https://internal.example.com/fedora/19/os/x86_64'
-node.default['yum']['fedora']['sslverify'] = false
-node.default['yum']['updates']['enabled'] = true
-node.default['yum']['updates']['mirrorlist'] = nil
-node.default['yum']['updates']['baseurl'] = 'https://internal.example.com/fedora/19/updates/x86_64'
-node.default['yum']['updates']['sslverify'] = false
-
-include_recipe 'yum-fedora'
-```
+* ChefSpec unit tests don't work because Fauxhai doesn't have data for Oracle Linux (yet).
+* Not all repositories that normally appear on an Oracle Linux system are managed yet by
+  this cookbook, because most of them are turned off. Pull requests are accepted to do all
+  the work to add them in.
 
 License & Authors
 -----------------
-- Author:: Sean OMeara (<someara@opscode.com>)
+
+- Author:: Julian C. Dunn (<jdunn@getchef.com>)
+
+Based on the ```yum-fedora``` cookbook by:
+
+- Author:: Sean O'Meara (<someara@getchef.com>)
 
 ```text
-Copyright:: 2011-2013 Opscode, Inc.
+Copyright:: 2014 Chef Software, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
