@@ -18,12 +18,12 @@
 
 case node['platform_version'].to_i
 when 5
-  repos = %w{el5_latest ol5_UEK_latest}
+  repos = %w(el5_latest ol5_UEK_latest)
   file '/etc/yum.repos.d/public-yum-el5.repo' do
     action :delete
   end
 when 6
-  repos = %w{ol6_latest ol6_UEK_latest}
+  repos = %w(ol6_latest ol6_UEK_latest)
   file '/etc/yum.repos.d/public-yum-ol6.repo' do
     action :delete
   end
