@@ -1,10 +1,9 @@
-{
-  "sources": {
-    "yum-oracle": {
-      "path": "."
-    },
-    "yum": {
-      "locked_version": "3.0.4"
-    }
-  }
-}
+DEPENDENCIES
+  yum-oracle
+    path: .
+    metadata: true
+
+GRAPH
+  yum (3.2.2)
+  yum-oracle (1.0.0)
+    yum (~> 3.0)
