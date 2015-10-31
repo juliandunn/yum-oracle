@@ -5,8 +5,8 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: oracle-5.10
-  - name: oracle-6.5
+   - name: oracle-5.10
+   - name: oracle-6.5
 
 suites:
   - name: default
