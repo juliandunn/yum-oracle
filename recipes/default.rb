@@ -28,7 +28,7 @@ when 6
     action :delete
   end
 when 7
-  repos = %w(ol7_latest ol7_UEK_latest)
+  repos = %w(ol7_latest ol7_UEK_UEKR3)
   file '/etc/yum.repos.d/public-yum-ol6.repo' do
     action :delete
   end
