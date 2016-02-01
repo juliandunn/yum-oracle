@@ -2,6 +2,11 @@ yum-fedora Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum-oracle cookbook.
 
+v1.0.2 (2016-02-01)
+-------------------
+- updated to work with Oracle 7
+
+
 v1.0.1 (2015-10-30)
 -------------------
 - updated for errors to be compatible with Chef 13

@@ -7,6 +7,9 @@ provisioner:
 platforms:
    - name: oracle-5.10
    - name: oracle-6.5
+   - name: oracle-72
+     driver_config:
+       box: box-cutter/ol72
 
 suites:
   - name: default
