@@ -27,7 +27,13 @@ when 6
   file '/etc/yum.repos.d/public-yum-ol6.repo' do
     action :delete
   end
+when 7
+  repos = %w(ol7_latest ol7_UEK_latest)
+  file '/etc/yum.repos.d/public-yum-ol7.repo' do
+    action :delete
+  end
 end
+
 
 repos.each do |repo|
   if node['yum'][repo]['managed']
