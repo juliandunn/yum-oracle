@@ -4,5 +4,5 @@ default['yum']['ol6_latest']['baseurl'] = 'http://public-yum.oracle.com/repo/Ora
 default['yum']['ol6_latest']['enabled'] = true
 default['yum']['ol6_latest']['managed'] = true
 default['yum']['ol6_latest']['metadata_expire'] = '7d'
-default['yum']['ol6_latest']['gpgcheck'] = true
+default['yum']['ol6_latest']['gpgcheck'] = false
 default['yum']['ol6_latest']['gpgkey'] = 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle'
