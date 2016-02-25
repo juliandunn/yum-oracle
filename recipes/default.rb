@@ -52,7 +52,7 @@ repos.each do |repo|
       include_config node['yum'][repo]['include_config'] if node['yum'][repo]['include_config']
       includepkgs node['yum'][repo]['includepkgs'] if node['yum'][repo]['includepkgs']
       keepalive node['yum'][repo]['keepalive'] if node['yum'][repo]['keepalive']
-      make_cache node['yum'][repo]['make_cache'] unless node['yum'][repo]['make_cache'].nil?
+      make_cache node['yum'][repo]['make_cache'] if node['yum'][repo]['make_cache']
       max_retries node['yum'][repo]['max_retries'] if node['yum'][repo]['max_retries']
       metadata_expire node['yum'][repo]['metadata_expire'] if node['yum'][repo]['metadata_expire']
       mirror_expire node['yum'][repo]['mirror_expire'] if node['yum'][repo]['mirror_expire']
