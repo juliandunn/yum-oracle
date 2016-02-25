@@ -2,6 +2,10 @@ yum-fedora Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum-oracle cookbook.
 
+v1.0.3
+-------------------
+- added in support for `make_cache` attribute
+
 v1.0.2 (2016-02-04)
 -------------------
 - support Oracle Enterprise Linux 7
