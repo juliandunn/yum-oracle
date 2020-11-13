@@ -2,7 +2,7 @@
 # Author:: Julian C. Dunn (<jdunn@getchef.com>)
 # Recipe:: yum-oracle::default
 #
-# Copyright 2014, Chef Software, Inc.
+# Copyright:: 2014, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,8 +29,28 @@ when 6
   end
 when 7
   repos = %w(ol7_latest ol7_UEK_latest)
-  file '/etc/yum.repos.d/public-yum-ol7.repo' do
-    action :delete
+  default_files = %w(
+    public-yum-ol7.repo
+    oracle-linux-ol7.repo
+    uek-ol7.repo
+    virt-ol7.repo
+  )
+  default_files.each do |yum_file|
+    file "/etc/yum.repos.d/#{yum_file}" do
+      action :delete
+    end
+  end
+when 8
+  repos = %w(ol8_latest ol8_UEK_latest)
+  default_files = %w(
+    public-yum-ol8.repo
+    oracle-linux-ol8.repo
+    uek-ol8.repo
+  )
+  default_files.each do |yum_file|
+    file "/etc/yum.repos.d/#{yum_file}" do
+      action :delete
+    end
   end
 end
 
