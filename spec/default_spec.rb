@@ -89,6 +89,7 @@ describe 'yum-oracle::default' do
   #    ChefSpec::ServerRunner.new(:platform => 'oracle', :version => '8') do |node|
   #      node.normal['yum']['el8_latest']['managed'] = true
   #      node.normal['yum']['ol8_UEK_latest']['managed'] = true
+  #      node.normal['yum']['ol8_appstream']['managed'] = true
   #    end.converge(described_recipe)
   #  end
 

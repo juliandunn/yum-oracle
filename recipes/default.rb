@@ -41,7 +41,7 @@ when 7
     end
   end
 when 8
-  repos = %w(ol8_latest ol8_UEK_latest)
+  repos = %w(ol8_latest ol8_UEK_latest ol8_appstream)
   default_files = %w(
     public-yum-ol8.repo
     oracle-linux-ol8.repo
