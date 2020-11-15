@@ -1,0 +1,9 @@
+default['yum']['ol8_appstream']['repositoryid'] = 'ol8_appstream'
+default['yum']['ol8_appstream']['description'] = 'Oracle Linux $releasever Appstream ($basearch)'
+default['yum']['ol8_appstream']['baseurl'] = 'http://yum.oracle.com/repo/OracleLinux/OL8/appstream/x86_64'
+default['yum']['ol8_appstream']['enabled'] = true
+default['yum']['ol8_appstream']['make_cache'] = true
+default['yum']['ol8_appstream']['managed'] = true
+default['yum']['ol8_appstream']['metadata_expire'] = '7d'
+default['yum']['ol8_appstream']['gpgcheck'] = true
+default['yum']['ol8_appstream']['gpgkey'] = 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle'
