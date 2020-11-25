@@ -6,7 +6,7 @@ require 'kitchen'
 # Style tests. Rubocop and Foodcritic
 namespace :style do
   desc 'Run Ruby style checks'
-  Rubocop::RakeTask.new(:ruby)
+  RuboCop::RakeTask.new(:ruby)
 
   desc 'Run Chef style checks'
   FoodCritic::Rake::LintTask.new(:chef) do |t|
@@ -14,8 +14,8 @@ namespace :style do
       :fail_tags => ['any'],
       :tags => [
         '~FC005',
-        '~FC023'
-      ]
+        '~FC023',
+      ],
     }
   end
 end

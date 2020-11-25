@@ -1,0 +1,9 @@
+default['yum']['ol8_latest']['repositoryid'] = 'ol8_latest'
+default['yum']['ol8_latest']['description'] = 'Oracle Linux $releasever Latest ($basearch)'
+default['yum']['ol8_latest']['baseurl'] = 'http://public-yum.oracle.com/repo/OracleLinux/OL8/baseos/latest/$basearch/'
+default['yum']['ol8_latest']['enabled'] = true
+default['yum']['ol8_latest']['make_cache'] = true
+default['yum']['ol8_latest']['managed'] = true
+default['yum']['ol8_latest']['metadata_expire'] = '7d'
+default['yum']['ol8_latest']['gpgcheck'] = true
+default['yum']['ol8_latest']['gpgkey'] = 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle'
