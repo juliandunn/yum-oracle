@@ -2,7 +2,7 @@
 # Author:: Julian C. Dunn (<jdunn@getchef.com>)
 # Recipe:: yum-oracle::default
 #
-# Copyright:: 2014, Chef Software, Inc.
+# Copyright:: 2021, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ when 7
     end
   end
 when 8
-  repos = %w(ol8_latest ol8_UEK_latest ol8_appstream)
+  repos = %w(ol8_latest ol8_UEK_latest ol8_appstream ol8_addons)
   default_files = %w(
     public-yum-ol8.repo
     oracle-linux-ol8.repo
