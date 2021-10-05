@@ -1,6 +1,10 @@
-yum-fedora Cookbook CHANGELOG
+yum-oracle Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum-oracle cookbook.
+
+v1.0.5 (2021-07-09)
+-------------------
+- Extend Oracle Enterprise Linux 8 - Addons repos
 
 v1.0.4 (2020-11-13)
 -------------------
