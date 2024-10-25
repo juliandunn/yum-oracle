@@ -52,6 +52,18 @@ when 8
       action :delete
     end
   end
+when 9
+  repos = %w(ol9_latest ol9_UEK_latest ol9_appstream ol9_addons)
+  default_files = %w(
+    public-yum-ol9.repo
+    oracle-linux-ol9.repo
+    uek-ol9.repo
+  )
+  default_files.each do |yum_file|
+    file "/etc/yum.repos.d/#{yum_file}" do
+      action :delete
+    end
+  end
 end
 
 repos.each do |repo|

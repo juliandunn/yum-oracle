@@ -2,6 +2,10 @@ yum-oracle Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum-oracle cookbook.
 
+v1.0.6 (2024-10-17)
+-------------------
+- Support Oracle Enterprise Linux 9
+
 v1.0.5 (2021-07-09)
 -------------------
 - Extend Oracle Enterprise Linux 8 - Addons repos
